@@ -30,8 +30,22 @@ class MovieListView extends StatelessWidget {
 
         return Card(//card is used to represent some related information like album,contact details
           color: Colors.white,
+          elevation: 4.5,//gives shadow
           child: ListTile(
             title: Text(movies[index]),
+            leading: CircleAvatar(
+              child: Container(
+               // decoration: BoxDecoration(
+                //  color: Colors.blue,
+                 // borderRadius: BorderRadius.circular(13.9)
+               // ),
+                child: Text("H"),
+
+              ),
+            ),
+            trailing: Text("...") ,
+            onTap: ()=>debugPrint("Movie name: ${movies.elementAt(index)}"),
+
 
 
 
