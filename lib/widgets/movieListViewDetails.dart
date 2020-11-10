@@ -12,7 +12,7 @@ class MovieListViewDetails extends StatelessWidget {
       ),
       body: Container(
         child:RaisedButton(onPressed: (){
-
+            Navigator.pop(context);
         },
         child: Center(child: Text("Go back")),
         ),
