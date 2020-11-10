@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:movie_app/widgets/movieListViewDetails.dart';
+
 
 class MovieListView extends StatelessWidget {
   final List movies=[
@@ -44,7 +46,10 @@ class MovieListView extends StatelessWidget {
               ),
             ),
             trailing: Text("...") ,
-            onTap: ()=>debugPrint("Movie name: ${movies.elementAt(index)}"),
+            onTap: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>MovieListViewDetails()));
+            },
+            //onTap: ()=>debugPrint("Movie name: ${movies.elementAt(index)}"),
 
 
 
