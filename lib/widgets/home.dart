@@ -47,7 +47,8 @@ class MovieListView extends StatelessWidget {
             ),
             trailing: Text("...") ,
             onTap: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context)=>MovieListViewDetails()));
+              //Going to next page
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>MovieListViewDetails(movieName: movies.elementAt(index),)));
             },
             //onTap: ()=>debugPrint("Movie name: ${movies.elementAt(index)}"),
 
