@@ -1,2 +1,2 @@
 # Movie_app
-A movie app to watch Movies.
+An app to watch Movies.
