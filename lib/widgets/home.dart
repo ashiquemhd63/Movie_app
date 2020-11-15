@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:movie_app/widgets/movie.dart';
 import 'package:movie_app/widgets/movieListViewDetails.dart';
+
+
+final List<Movie> movieList= Movie.getMovies();
 
 
 class MovieListView extends StatelessWidget {
@@ -27,14 +31,15 @@ class MovieListView extends StatelessWidget {
       backgroundColor: Colors.blueGrey.shade400,
       //[ListView.builder] is used to generate dynamic content from external source
       body:ListView.builder(
-          itemCount: movies.length,//The count of data items
+          itemCount: movieList.length,//The count of data items
           itemBuilder: (BuildContext context,int index){
 
         return Card(//card is used to represent some related information like album,contact details
           color: Colors.white,
           elevation: 4.5,//gives shadow
           child: ListTile(
-            title: Text(movies[index]),
+            title: Text(movieList[index].title),
+            subtitle: Text("${movieList[0].title}"),
             leading: CircleAvatar(
               child: Container(
                // decoration: BoxDecoration(
