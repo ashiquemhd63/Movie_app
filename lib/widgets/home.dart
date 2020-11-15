@@ -6,6 +6,7 @@ import 'package:movie_app/widgets/movieListViewDetails.dart';
 final List<Movie> movieList= Movie.getMovies();
 
 
+
 class MovieListView extends StatelessWidget {
   final List movies=[
     "Titanic",
@@ -42,18 +43,25 @@ class MovieListView extends StatelessWidget {
             subtitle: Text("${movieList[0].title}"),
             leading: CircleAvatar(
               child: Container(
-               // decoration: BoxDecoration(
+                decoration: BoxDecoration(
+                image: DecorationImage(
+
+                image: NetworkImage(movieList[index].images[0]),
+                  fit: BoxFit.cover,
+            ),
                 //  color: Colors.blue,
-                 // borderRadius: BorderRadius.circular(13.9)
-               // ),
-                child: Text("H"),
+                  borderRadius: BorderRadius.circular(13.9)
+                ),
+                //child: Text("H"),
 
               ),
             ),
             trailing: Text("...") ,
             onTap: (){
               //Going to next page
-              Navigator.push(context, MaterialPageRoute(builder: (context)=>MovieListViewDetails(movieName: movies.elementAt(index),)));
+              //passing data to next route
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>MovieListViewDetails(movieName: movieList[index].title,
+                movie: movieList[index])));
             },
             //onTap: ()=>debugPrint("Movie name: ${movies.elementAt(index)}"),
 
