@@ -35,7 +35,16 @@ class MovieListView extends StatelessWidget {
       body:ListView.builder(
           itemCount: movieList.length,//The count of data items
           itemBuilder: (BuildContext context,int index){
-            return movieCard(movieList[index], context);
+            return Stack(children:[
+
+              movieCard(movieList[index], context),
+              Positioned(
+                top: 10,
+
+
+                  child: movieImage(movieList[index].images[0])),
+            ]);
+
 
         // return Card(//card is used to represent some related information like album,contact details
         //   color: Colors.white,
@@ -78,6 +87,7 @@ class MovieListView extends StatelessWidget {
   Widget movieCard(Movie movie,BuildContext context){
     return InkWell(//
       child: Container(
+        margin: EdgeInsets.only(left: 60.0),
         width: MediaQuery.of(context).size.width,
         height: 120.0,
         child: Card(
@@ -115,6 +125,20 @@ class MovieListView extends StatelessWidget {
           Navigator.push(context, MaterialPageRoute(builder: (context)=>MovieListViewDetails(movieName: movie.title,
             movie: movie)));
         },
+    );
+  }
+  Widget movieImage(String imageUrl){
+    return Container(width: 100,
+    height: 100,
+      decoration: BoxDecoration(
+        shape: BoxShape.circle,
+        image: DecorationImage(
+          image: NetworkImage(imageUrl ?? ''),
+          fit: BoxFit.cover,
+        ),
+
+      ),
+
     );
   }
 
