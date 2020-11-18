@@ -94,28 +94,58 @@ class MovieListView extends StatelessWidget {
           color: Colors.black45,
           child: Padding(
             padding: const EdgeInsets.only(top: 8.0,bottom: 8.0,left: 54.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(movie.title),
-                    Text("${movie.imdbrating}/10"),
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    Text("Released: ${movie.released}"),
-                    Text(movie.runtime),
-                    Text(movie.rated),
+            child: Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Flexible(//It eliminate overflow of the text
+                        child: Text(movie.title,
+                          style:TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 17.0,
+                            color: Colors.white,
 
-                  ],
-                ),
+                          ) ,
+                        ),
+                      ),
+                      Text("${movie.imdbrating}/10",
+                      style: TextStyle(
+                        fontSize: 15.0,
+                        color: Colors.grey,
+                      ),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Text("Released: ${movie.released}",
+                        style: mainTextStyle()
+                      ),
+                      Text(movie.runtime,
+                        style: TextStyle(
+                        fontSize: 15.0,
+                        color: Colors.grey,
+                      ),
+                      ),
+                      Text(movie.rated,
+                        style: TextStyle(
+                        fontSize: 15.0,
+                        color: Colors.grey,
+                      ),
+                        ),
 
-              ],
+
+                    ],
+                  ),
+
+                ],
+              ),
             ),
           ),
         ),
@@ -139,6 +169,13 @@ class MovieListView extends StatelessWidget {
 
       ),
 
+    );
+  }
+  TextStyle mainTextStyle(){
+    return TextStyle(
+
+        fontSize: 15.0,
+        color: Colors.grey,
     );
   }
 
