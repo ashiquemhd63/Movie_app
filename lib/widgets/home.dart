@@ -30,7 +30,7 @@ class MovieListView extends StatelessWidget {
         title: Text("Movies"),
         backgroundColor: Colors.blueGrey.shade900,
       ),
-      backgroundColor: Colors.blueGrey.shade400,
+      backgroundColor: Colors.blueGrey.shade900,
       //[ListView.builder] is used to generate dynamic content from external source
       body:ListView.builder(
           itemCount: movieList.length,//The count of data items
