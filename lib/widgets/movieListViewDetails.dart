@@ -17,13 +17,53 @@ class MovieListViewDetails extends StatelessWidget {
         backgroundColor: Colors.blueGrey.shade900,
 
       ),
-      body: Container(
-        child:RaisedButton(onPressed: (){
-            Navigator.pop(context);//Going back to previous route
-        },
-        child: Center(child: Text("Go back")),
-        ),
+
+      body: ListView(
+        children: [
+          MovieDetailsThumbnail(thumbnail: movie.images[0],)
+
+        ],
       ),
+      // body: Container(
+      //   child:RaisedButton(onPressed: (){
+      //       Navigator.pop(context);//Going back to previous route
+      //   },
+      //   child: Center(child: Text("Go back")),
+      //   ),
+      // ),
     );
   }
 }
+class MovieDetailsThumbnail extends StatelessWidget {
+  final String thumbnail;
+
+  const MovieDetailsThumbnail({Key key, this.thumbnail}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      alignment: Alignment.bottomCenter,
+      children: [
+        Stack(
+          alignment: Alignment.center,
+          children: [
+            Container(
+              width: MediaQuery.of(context).size.width,
+              height: 190.0,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: NetworkImage(thumbnail),
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+            Icon(Icons.play_circle_outline,size: 100,
+            color: Colors.white,)
+          ],
+        ),
+
+      ],
+    );
+  }
+}
+
